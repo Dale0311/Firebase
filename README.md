@@ -1,8 +1,42 @@
-# React + Vite
+# React + Firebase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+notes: i = import, c = create
 
-Currently, two official plugins are available:
+### Setting up
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. add project
+2. @project terminal -> npm i firebase
+3. create sdk, copy n paste
+
+### Authentication - async
+
+#### signing up
+
+1. @firebase
+   c: sign in method w emailnpass
+2. @project config
+   i: getAuth from "firebase/auth" <br>
+   c: const auth = getAuth(app)
+3. @sign up page/component
+   i: createUserWithEmailAndPassword from "../config/firebase"<br>
+   i: createUserWithEmailAndPassword from "firebase/auth"
+4. create a fn that runs whenever we submit the form
+   @handleSubmit instantiate the createUserWithEmailAndPassword(auth, username, password)
+
+#### signing up using Google
+
+2. @project config
+   i: GoogleAuthProvider from "firebase/auth"<br>
+   c: const googleProvider = new GoogleAuthProvider()
+3. @sign up page/component
+   i: googleProvider from "../config/firebase"<br>
+   i: signInWithPopup from "firebase/auth"
+4. @handleSubmit instantiate the signInWithPopup(auth, googleProvider)
+
+5. @logout page/component
+i: signOut from "firebase/auth"
+@handleLogout instantiate signOut(auth)
+
+#### getting information from the current user
+1. after sign in or sign up
+2. auth.currentUser -> object that has the current user info 
