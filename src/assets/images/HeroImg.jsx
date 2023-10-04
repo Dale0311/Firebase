@@ -7,7 +7,7 @@ function HeroImg() {
         width="631.48281"
         height="593.94092"
         viewBox="0 0 631.48281 593.94092"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
       >
         <path
           d="M790.35308,612.97046a26,26,0,1,1,26-26A26.02948,26.02948,0,0,1,790.35308,612.97046Z"

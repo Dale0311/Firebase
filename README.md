@@ -18,7 +18,7 @@ notes: i = import, c = create
    i: getAuth from "firebase/auth" <br>
    c: const auth = getAuth(app)
 3. @sign up page/component
-   i: createUserWithEmailAndPassword from "../config/firebase"<br>
+   i: auth from "../config/firebase"<br>
    i: createUserWithEmailAndPassword from "firebase/auth"
 4. create a fn that runs whenever we submit the form
    @handleSubmit instantiate the createUserWithEmailAndPassword(auth, username, password)
@@ -34,9 +34,16 @@ notes: i = import, c = create
 4. @handleSubmit instantiate the signInWithPopup(auth, googleProvider)
 
 5. @logout page/component
-i: signOut from "firebase/auth"
-@handleLogout instantiate signOut(auth)
+   i: signOut from "firebase/auth"
+   @handleLogout instantiate signOut(auth)
 
 #### getting information from the current user
+
 1. after sign in or sign up
-2. auth.currentUser -> object that has the current user info 
+2. auth.currentUser -> object that has the current user info
+
+#### setting up authentication
+
+1. create a authContext
+
+# gonna learn first react router authentication be4 jumping back, peace out

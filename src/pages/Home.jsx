@@ -1,4 +1,5 @@
 import HeroImg from "../assets/images/HeroImg";
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className="container mx-auto">
@@ -15,12 +16,12 @@ function Home() {
               blogging experience to new heights.
             </p>
             <div className="mt-4 md:mt-8">
-              <a
-                href="#"
+              <Link
+                to="blogs"
                 className="inline-block rounded bg-[#6C63FF] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#6C63FF]/90 focus:outline-none focus:ring focus:ring-skyblue-400"
               >
-                Get Started Today
-              </a>
+                See Blogs
+              </Link>
             </div>
           </div>
         </div>
