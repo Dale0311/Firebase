@@ -1,11 +1,8 @@
-import { redirect } from "react-router-dom";
-function requireAuth(request) {
-  const user = localStorage.getItem("user") || "";
-  const url = new URL(request.url).pathname;
+function requireAuth(user) {
   if (!user) {
-    return redirect(`/login?message=Login first&redirectTo=${url || "/"}`);
+    return false;
   }
-  return null;
+  return true;
 }
 
 export default requireAuth;

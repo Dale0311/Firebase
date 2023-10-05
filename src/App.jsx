@@ -8,43 +8,39 @@ import {
 // pages
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import Login, {
-  loader as loginLoader,
-  action as loginAction,
-} from "./pages/login";
+import SignUp, { loader as loginLoader } from "./pages/SignUp";
+import Profile from "./pages/Profile";
+import ProtectedRoute, {
+  loader as protectedLoader
+} from "./components/ProtectedRoute";
+// Context
+import AuthContext from "./contexts/AuthContext";
 
-// Auth
-import requireAuth from "./utils/requireAuth";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route
-          path="blogs"
-          element={<h1>Hello from Blogs</h1>}
-          loader={async ({ request }) => {
-            return requireAuth(request);
-          }}
-        />
+        <Route path="blogs" element={<h1>Hello from Blogs</h1>} />
         <Route
           path="profile"
-          element={<h1>Hello from Profile</h1>}
-          loader={async ({ request }) => {
-            return requireAuth(request);
-          }}
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+          loader={protectedLoader}
         />
-        <Route
-          path="login"
-          element={<Login />}
-          loader={loginLoader}
-          action={loginAction}
-        />
+        <Route path="signup" element={<SignUp />} loader={loginLoader} />
       </Route>
     )
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <AuthContext>
+      <RouterProvider router={router} />;
+    </AuthContext>
+  );
 }
 
 export default App;

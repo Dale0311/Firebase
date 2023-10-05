@@ -24,7 +24,7 @@ function Layout() {
             </NavLink>
 
             <NavLink
-              to={"login"}
+              to={"signup"}
               className="shrink-0 rounded-lg p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700"
               onClick={() => localStorage.clear()}
             >

@@ -8,9 +8,9 @@ notes: i = import, c = create
 2. @project terminal -> npm i firebase
 3. create sdk, copy n paste
 
-### Authentication - async
+## Authentication - async
 
-#### signing up
+#### signing up with email and pass
 
 1. @firebase
    c: sign in method w emailnpass
@@ -37,13 +37,15 @@ notes: i = import, c = create
    i: signOut from "firebase/auth"
    @handleLogout instantiate signOut(auth)
 
+#### signing in with email and pass
+
+the same as signing up but instead of createUserWithEmailAndPassword use signInWithEmailAndPassword
+
 #### getting information from the current user
 
 1. after sign in or sign up
 2. auth.currentUser -> object that has the current user info
 
-#### setting up authentication
-
-1. create a authContext
-
 # gonna learn first react router authentication be4 jumping back, peace out
+
+- DONE
