@@ -8,11 +8,15 @@ import {
 // pages
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-import SignUp, { loader as loginLoader } from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import ProtectedRoute, {
-  loader as protectedLoader
+  loader as protectedLoader,
 } from "./components/ProtectedRoute";
+import Blogs, { loader as blogsLoader } from "./pages/Blogs";
+// auth component
+import SignUp from "./pages/SignUp";
+import SignIn, { loader as signInLoader } from "./pages/SignIn";
+
 // Context
 import AuthContext from "./contexts/AuthContext";
 
@@ -21,7 +25,7 @@ function App() {
     createRoutesFromElements(
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="blogs" element={<h1>Hello from Blogs</h1>} />
+        <Route path="blogs" element={<Blogs />} loader={blogsLoader} />
         <Route
           path="profile"
           element={
@@ -31,14 +35,15 @@ function App() {
           }
           loader={protectedLoader}
         />
-        <Route path="signup" element={<SignUp />} loader={loginLoader} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="signin" element={<SignIn />} loader={signInLoader} />
       </Route>
     )
   );
 
   return (
     <AuthContext>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </AuthContext>
   );
 }

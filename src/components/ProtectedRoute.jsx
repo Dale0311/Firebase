@@ -12,7 +12,7 @@ function ProtectedRoute({ children }) {
   return (
     <div>
       {!isLoggedIn ? (
-        <Navigate to={"/signup?message=Log in first&redirectTo=" + url} />
+        <Navigate to={"/signin?message=Sign in first&redirectTo=" + url} />
       ) : (
         children
       )}

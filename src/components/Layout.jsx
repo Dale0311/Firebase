@@ -1,6 +1,8 @@
 import { NavLink, Outlet, Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
+import { authData } from "../contexts/AuthContext";
 function Layout() {
+  const { user } = authData();
   return (
     <>
       <div>
@@ -9,12 +11,14 @@ function Layout() {
             <img src={logo} />
           </Link>
           <nav className="flex-1 flex gap-6 justify-end" aria-label="Tabs">
-            <NavLink
-              to={"blogs"}
-              className="shrink-0 rounded-lg p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-            >
-              Blogs
-            </NavLink>
+            {user && (
+              <NavLink
+                to={"blogs"}
+                className="shrink-0 rounded-lg p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+              >
+                Blogs
+              </NavLink>
+            )}
 
             <NavLink
               to={"profile"}
@@ -24,7 +28,7 @@ function Layout() {
             </NavLink>
 
             <NavLink
-              to={"signup"}
+              to={"signin"}
               className="shrink-0 rounded-lg p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-700"
               onClick={() => localStorage.clear()}
             >

@@ -49,3 +49,18 @@ the same as signing up but instead of createUserWithEmailAndPassword use signInW
 # gonna learn first react router authentication be4 jumping back, peace out
 
 - DONE
+
+## CRUD Firestore
+
+#### config
+
+- @firebase config:
+  i: {getFirestore} from "firebase/firestore"
+  c: export const db = getFirestore(app)
+
+#### Read
+
+<b>Steps</b>
+
+1. i: collection -> configuration. pass the db and endpoint
+1. i: getDocs -> get all the records. pass the collection
