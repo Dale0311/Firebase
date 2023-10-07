@@ -12,7 +12,10 @@ import Profile from "./pages/Profile";
 import ProtectedRoute, {
   loader as protectedLoader,
 } from "./components/ProtectedRoute";
-import Blogs, { loader as blogsLoader } from "./pages/Blogs";
+import Blogs, {
+  loader as blogsLoader,
+  action as blogsAction,
+} from "./pages/Blogs";
 // auth component
 import SignUp from "./pages/SignUp";
 import SignIn, { loader as signInLoader } from "./pages/SignIn";
@@ -25,7 +28,12 @@ function App() {
     createRoutesFromElements(
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
-        <Route path="blogs" element={<Blogs />} loader={blogsLoader} />
+        <Route
+          path="blogs"
+          element={<Blogs />}
+          loader={blogsLoader}
+          action={blogsAction}
+        />
         <Route
           path="profile"
           element={

@@ -63,4 +63,8 @@ the same as signing up but instead of createUserWithEmailAndPassword use signInW
 <b>Steps</b>
 
 1. i: collection -> configuration. pass the db and endpoint
-1. i: getDocs -> get all the records. pass the collection
+   const config = collection(db, "blogs")
+2. i: getDocs -> get all the records. pass the collection
+   const data = await getDocs(config)
+3. map over data -> doc.data is a fn
+   const blogs = data.docs.map(doc => ({...doc.data(), id: doc.id}))
