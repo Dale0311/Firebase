@@ -68,3 +68,20 @@ the same as signing up but instead of createUserWithEmailAndPassword use signInW
    const data = await getDocs(config)
 3. map over data -> doc.data is a fn
    const blogs = data.docs.map(doc => ({...doc.data(), id: doc.id}))
+
+#### Create
+
+1. same as Read
+2. i: addDoc -> await addDoc(config, {data here})
+
+#### Delete
+
+1. i: doc -> reference to absolute specific path
+   const toDeleteBlogRef = doc(db, "blogs", {id here})
+2. i: deleteDoc -> pass the toDeleteDoc
+
+#### update
+
+1. same as Delete
+2. i: updateDoc -> pass the toUpdateBlogRef and new data
+   await updateDoc(toUpdateBlogRef, {new data here})
